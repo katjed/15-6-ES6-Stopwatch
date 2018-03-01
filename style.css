@@ -1,0 +1,32 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+	background-color: #edf4f3;
+	text-align: center;
+}
+
+.controls {
+	margin-top: 30px;
+}
+
+.button {
+	color: #328276;
+	text-decoration: none;
+}
+
+#start {
+	margin-right: 10px;
+}
+
+#stop {
+	margin-left: 10px;
+}
+
+.stopwatch {
+	color: #328276;
+	font-size: 50px;
+}
+
+
