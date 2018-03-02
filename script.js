@@ -57,6 +57,18 @@ class Stopwatch {
     	this.running = false;
     	clearInterval(this.watch);
 	}  
+
+    /*
+    resetStopwatch() {
+        this.running = false;
+        this.times = {
+            minutes: 0,
+            seconds: 0,
+            miliseconds: 0
+        };
+        this.print();
+    }
+    */
 }
 
 function pad0(value) {
@@ -67,5 +79,4 @@ function pad0(value) {
     return result;
 }
 
-const stopwatch = new Stopwatch(
-document.querySelector('.stopwatch'));
+const stopwatch = new Stopwatch(document.querySelector('.stopwatch'));
