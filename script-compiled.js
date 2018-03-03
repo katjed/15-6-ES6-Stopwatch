@@ -14,12 +14,33 @@ stopButton.addEventListener('click', function () {
     return stopwatch.stop();
 });
 
+var resetButton = document.getElementById('reset');
+resetButton.addEventListener('click', function () {
+    return stopwatch.resetStopwatch();
+});
+
+var saveButton = document.getElementById('save');
+saveButton.addEventListener('click', function () {
+    return stopwatch.save();
+});
+
+var clearButton = document.getElementById('clear');
+clearButton.addEventListener('click', function () {
+    return stopwatch.clear();
+});
+
+var clearListButton = document.getElementById('clear-list');
+clearListButton.addEventListener('click', function () {
+    return stopwatch.clearList();
+});
+
 var Stopwatch = function () {
-    function Stopwatch(display) {
+    function Stopwatch(display, results) {
         _classCallCheck(this, Stopwatch);
 
         this.running = false;
         this.display = display;
+        this.results = results;
         this.reset();
         this.print(this.times);
     }
@@ -63,6 +84,24 @@ var Stopwatch = function () {
             this.print();
         }
     }, {
+        key: 'save',
+        value: function save() {
+            var liElement = document.createElement('li');
+
+            liElement.innerText = this.format(this.times);
+            this.results.appendChild(liElement);
+        }
+    }, {
+        key: 'clear',
+        value: function clear() {
+            this.results.removeChild(this.results.lastChild);
+        }
+    }, {
+        key: 'clearList',
+        value: function clearList() {
+            this.results.innerHTML = '';
+        }
+    }, {
         key: 'calculate',
         value: function calculate() {
             this.times.miliseconds += 1;
@@ -81,6 +120,13 @@ var Stopwatch = function () {
             this.running = false;
             clearInterval(this.watch);
         }
+    }, {
+        key: 'resetStopwatch',
+        value: function resetStopwatch() {
+            this.running = false;
+            this.reset();
+            this.print();
+        }
     }]);
 
     return Stopwatch;
@@ -94,4 +140,4 @@ function pad0(value) {
     return result;
 }
 
-var stopwatch = new Stopwatch(document.querySelector('.stopwatch'));
+var stopwatch = new Stopwatch(document.querySelector('.stopwatch'), document.querySelector('.results'));
