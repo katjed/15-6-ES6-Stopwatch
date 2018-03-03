@@ -14,8 +14,8 @@ stopButton.addEventListener('click', function () {
     return stopwatch.stop();
 });
 
-var resetButton = document.getElementById('reset');
-resetButton.addEventListener('click', function () {
+var resetStopwatchButton = document.getElementById('reset');
+resetStopwatchButton.addEventListener('click', function () {
     return stopwatch.resetStopwatch();
 });
 
@@ -84,24 +84,6 @@ var Stopwatch = function () {
             this.print();
         }
     }, {
-        key: 'save',
-        value: function save() {
-            var liElement = document.createElement('li');
-
-            liElement.innerText = this.format(this.times);
-            this.results.appendChild(liElement);
-        }
-    }, {
-        key: 'clear',
-        value: function clear() {
-            this.results.removeChild(this.results.lastChild);
-        }
-    }, {
-        key: 'clearList',
-        value: function clearList() {
-            this.results.innerHTML = '';
-        }
-    }, {
         key: 'calculate',
         value: function calculate() {
             this.times.miliseconds += 1;
@@ -126,6 +108,24 @@ var Stopwatch = function () {
             this.running = false;
             this.reset();
             this.print();
+        }
+    }, {
+        key: 'save',
+        value: function save() {
+            var liElement = document.createElement('li');
+
+            liElement.innerText = this.format(this.times);
+            this.results.appendChild(liElement);
+        }
+    }, {
+        key: 'clear',
+        value: function clear() {
+            this.results.removeChild(this.results.lastChild);
+        }
+    }, {
+        key: 'clearList',
+        value: function clearList() {
+            this.results.innerHTML = '';
         }
     }]);
 
