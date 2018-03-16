@@ -1,3 +1,3 @@
-task-15-6
+15-6-ES6-Stopwatch
 
-https://katjed.github.io/task-15-6/
+https://katjed.github.io/15-6-ES6-Stopwatch/
